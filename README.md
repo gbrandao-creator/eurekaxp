@@ -1,1 +1,1 @@
-# repositório para o curso da Eureka XP de React
+# Curso da Eureka XP de React.
