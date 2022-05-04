@@ -7,17 +7,26 @@ import Erro from './Containers/Erro'
 
 function App() {
 
-  const [numeroTela, setNumeroTela] = useState(0);
-
-  function handleClick(){
-    setNumeroTela((numeroTela + 1) % 4) 
+  const [nomeTela, setNomeTela] = useState("PESQUISA");
+  const [resultado, setResultado] = useState({});
+  function goTo(nomeTela){
+    console.log('Navegando para a tela ${nomeTela}');
+    setNomeTela(nomeTela);
   }
+
+  function cepMask(str){
+    return str.replace(/^(\d{5})(\d)/g, '$1-$2')
+  }
+
   return <div>
-    <button onClick={handleClick} >Próxima tela</button>
-    {numeroTela == 0 ? <Pesquisa/> : null} 
-    {numeroTela == 1 ? <Resultados result={{"RUA": "José Clemente"}}/> : null} 
-    {numeroTela == 2 ? <Erro errorMessage={"CEP não encontrado"}/> : null}
-    {numeroTela == 3 ? <Carregando/> : null}  
+    <div className="App">
+      <header className="App-header">
+        {nomeTela == "PESQUISA" ? <Pesquisa goTo={goTo} setResultado={setResultado} cepMask={cepMask}/> : null} 
+        {nomeTela == "RESULTADOS" ? <Resultados goTo={goTo} result={resultado} cepMask={cepMask}/> : null} 
+        {nomeTela == "ERRO" ? <Erro goTo={goTo} errorMessage={"CEP não encontrado"}/> : null}
+        {nomeTela == "CARREGANDO" ? <Carregando goTo={goTo}/> : null}  
+      </header>
+    </div>
   </div>;
 }
 
