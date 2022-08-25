@@ -1,3 +1,5 @@
-# Oi!
+# React.js - Eureka XP Course
 
-## Neste repositório você encontrará os arquivos de uma aplicação web, desenvolvida durante o curso de React.js da Eureka XP. Nesta aplicação, foi desenvolvida uma página que implementa uma consulta de CEP.
+### In this repo, you'll find a web application, developed during the [Eureka XP React.js Course](https://xp.eurekalabs.com.br/). 
+
+- This application implements a ''Post Code'' (CEP) consult. 
